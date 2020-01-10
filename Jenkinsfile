@@ -8,9 +8,9 @@ pipeline {
         }
         stage('Upload to AWS') {
             steps {
-                withAWS(region:'us-east-2',credentials:'aws-static') {
+                withAWS(region:'us-west-1',credentials:'aws-static') {
 		        sh 'echo "Hello World with AWS"'
-                s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'jenkinspipelinedeploybucket')
+                s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'blueoceanjenkins')
                 }
             }
         }
